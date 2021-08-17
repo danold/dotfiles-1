@@ -1,4 +1,5 @@
 ---
-- src: geerlingguy.homebrew
-- src: geerlingguy.mas
-- src: kewlfft.aur
+roles:
+  - name: kewlfft.aur
+collections:
+  - name: geerlingguy.mac

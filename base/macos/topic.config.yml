@@ -8,8 +8,8 @@ macos_config:
     # essential
     - alfred
     - bartender
-    - discord
-    - dropbox
+    #- discord
+    #- dropbox
     - google-chrome
     - istat-menus
     - 1password
@@ -57,12 +57,12 @@ macos_config:
   osx_defaults:
     - domain: com.apple.dock
       key: orientation
-      value: left
+      value: bottom
       type: string
       state: present
     - domain: com.apple.dock
       key: autohide
-      value: true
+      value: false
       type: boolean
       state: present
     - domain: com.apple.dock

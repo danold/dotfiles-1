@@ -39,8 +39,8 @@ if [[ "$(_os)" == "macos" ]]; then
   # NTS: I use this for the 'tree' command
   # FIXME: No, appearently I don't. Is it for gnu ls?
   # FIXME: I need it to do readlink -f
-  path=( /usr/local/opt/coreutils/libexec/gnubin $path )
-  path=( /usr/local/mysql/bin $path )
+  path=( $(brew --prefix)/opt/coreutils/libexec/gnubin $path )
+  path=( $(brew --prefix)/mysql/bin $path )
 
   path=( ~/bin $path )
 fi

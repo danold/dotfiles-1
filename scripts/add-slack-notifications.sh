@@ -14,7 +14,7 @@ DIR=$(dirname "$([ -L "$0" ] && readlink -f "$0" || echo "$0")")
 [ -f "$DIR/echos.sh" ] && . "$DIR/echos.sh" || (echo "Could not source 'echos', aborting" && exit 1)
 
 TOKEN_FILE_PATH="$HOME/.travis/slack-token"
-ACCOUNT="eliasnorrby-dev"
+ACCOUNT="na-dev"
 CHANNEL="cicd"
 
 ERROR="Bad usage, see $0 -h"

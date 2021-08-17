@@ -7,7 +7,7 @@
       register: notes
     - name: clone notes repo
       git:
-        repo: https://github.com/eliasnorrby/notes
+        repo: https://github.com/danold/notes
         dest: "{{ notes_home }}"
         version: master
       when: notes.stat.isdir is undefined

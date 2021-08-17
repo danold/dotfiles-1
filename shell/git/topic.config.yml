@@ -6,6 +6,7 @@ git_config:
     - attributes
     - aliases
     - config-work
+    - config-coop
     - config-notes
     - ignore
   brew_formulas:

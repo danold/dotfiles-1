@@ -42,7 +42,7 @@ This setup script will:
 
 Dependencies:
 
-- [geerlingguy/homebrew][geerlingguy-homebrew-link]
+- [geerlingguy/mac/homebrew][geerlingguy-homebrew-link]
 - [geerlingguy/git][geerlingguy-git-link]
 - [kewlfft/aur][kewlfft-aur-link]
 
@@ -266,7 +266,7 @@ sudo chmod -R 755 /usr/local/share/zsh
 [semantic-release-link]: https://github.com/semantic-release/semantic-release
 [conventional-commits-badge]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
 [conventional-commits-link]: https://conventionalcommits.org
-[geerlingguy-homebrew-link]: https://homebrewhub.com/geerlingguy/ansible-role-homebrew
+[geerlingguy-homebrew-link]: https://homebrewhub.com/geerlingguy/ansible-collection-mac
 [geerlingguy-git-link]: https://github.com/geerlingguy/ansible-role-git
 [kewlfft-aur-link]: https://github.com/kewlfft/ansible-aur
 [hlissner-dotfiles-link]: https://github.com/hlissner/dotfiles

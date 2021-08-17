@@ -3,7 +3,6 @@ kafka_config:
   # It's not a language, but where do I put it?
   path: dev/kafka
   brew_formulas:
-    - kafka
     - kafkacat
   aur_packages:
     - kafka

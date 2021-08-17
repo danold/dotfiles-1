@@ -120,7 +120,7 @@ jobs:
       git:
         clone: false
       env:
-        curl_target: https://raw.githubusercontent.com/eliasnorrby/dotfiles/
+        curl_target: https://raw.githubusercontent.com/danold/dotfiles-1/
         DO_POST_INSTALL: false
         ANSIBLE_TAGS: all,setup_homebrew,do_defaults
       before_install: *prepare-homebrew

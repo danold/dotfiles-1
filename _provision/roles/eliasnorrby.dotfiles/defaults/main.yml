@@ -1,6 +1,6 @@
 ---
 # defaults file for ansible-role-dotfiles
-dotfiles_repo: https://github.com/eliasnorrby/dotfiles
+dotfiles_repo: https://github.com/danold/dotfiles-1
 
 xdg_config_home: "~/.config"
 xdg_cache_home: "~/.cache"

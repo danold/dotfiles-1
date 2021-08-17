@@ -1,5 +1,5 @@
 # User configuration
-DEFAULT_USER="elias.norrby"
+DEFAULT_USER="danold"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.

@@ -30,7 +30,7 @@ fi
 
 set -eo pipefail
 
-export DOTFILES_REPO="https://github.com/eliasnorrby/dotfiles"
+export DOTFILES_REPO="https://github.com/danold/dotfiles-1"
 export TARBALL_URL="$DOTFILES_REPO/tarball/$DOTFILES_VERSION"
 export DOTFILES=~/.dotfiles
 
@@ -42,7 +42,7 @@ function _prompt() {
 }
 
 function get_repo_snapshot() {
-  _msg "Downloading repository snapshot from eliasnorrby/dotfiles@$DOTFILES_VERSION..."
+  _msg "Downloading repository snapshot from danold/dotfiles-1@$DOTFILES_VERSION..."
   curl -sL "$TARBALL_URL" | tar xz
 }
 

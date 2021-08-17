@@ -1,6 +1,6 @@
 [user]
-  email = elias.norrby@gmail.com
-  name = Elias Norrby
+  email = daniel.oldgren@gmail.com
+  name = Daniel Oldgren
 [core]
   pager = diff-so-fancy | less --tabs=4
 [push]
@@ -13,7 +13,7 @@
 [hub]
   protocol = https
 [github]
-  user = eliasnorrby
+  user = danold
 [filter "lfs"]
   process = git-lfs filter-process
   required = true
@@ -25,6 +25,9 @@
 
 [includeIf "gitdir:work/"]
   path = config-work
+
+[includeIf "gitdir:coop/"]
+  path = config-coop
 
 [includeIf "gitdir:~/notes/"]
   path = config-notes

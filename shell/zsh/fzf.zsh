@@ -1,18 +1,18 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
+if [[ ! "$PATH" == *$(brew --prefix)/opt/fzf/bin* ]]; then
+  export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
 if [[ "$(_os)" == "macos" ]] ; then
-  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-  source "/usr/local/opt/fzf/shell/completion.zsh"
+  source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+  source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
 else
   source "/usr/share/fzf/key-bindings.zsh"
   source "/usr/share/fzf/completion.zsh"

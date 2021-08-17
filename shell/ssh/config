@@ -2,5 +2,8 @@ Include config.d/*
 
 # Put last - first match wins
 Host *
+  IdentityFile ~/.ssh/id_rsa
   AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519
+  TCPKeepAlive yes
+  ServerAliveInterval 120
+  ServerAliveCountMax 180

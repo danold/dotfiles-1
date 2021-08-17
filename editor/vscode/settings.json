@@ -1,6 +1,6 @@
 {
   "window.zoomLevel": 1,
-  "workbench.sideBar.location": "right",
+  "workbench.sideBar.location": "left",
   "workbench.activityBar.visible": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editor.closeOnFileDelete": true,
@@ -35,7 +35,7 @@
     "terminal.ansiYellow": "#E5C07B"
   },
   "editor.tabSize": 2,
-  "editor.fontFamily": "Dank Mono",
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.lineNumbers": "relative",
   // "emmet.triggerExpansionOnTab": true,
@@ -414,4 +414,13 @@
   "diffEditor.ignoreTrimWhitespace": true,
   "workbench.statusBar.visible": true,
   "editor.formatOnSave": true,
+  "git.autofetch": true,
+  "files.autoSave": "afterDelay",
+  "terminal.explorerKind": "external",
+  "terminal.external.osxExec": "iTerm.app",
+  "githubIssues.assignWhenWorking": false,
+  "git.autoStash": true,
+  "git.confirmSync": false,
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "all"
 }

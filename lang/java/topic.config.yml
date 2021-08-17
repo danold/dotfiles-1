@@ -8,6 +8,7 @@ java_config:
   brew_casks:
     - adoptopenjdk/openjdk/adoptopenjdk8
     - adoptopenjdk/openjdk/adoptopenjdk11
+    - graalvm-ce-java11
   brew_taps:
     - homebrew/cask-versions
     - adoptopenjdk/openjdk

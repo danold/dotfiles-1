@@ -72,7 +72,7 @@ fi
 
 set -eo pipefail
 
-export DOTFILES_REPO="https://github.com/eliasnorrby/dotfiles"
+export DOTFILES_REPO="https://github.com/danold/dotfiles-1"
 export TARBALL_URL="$DOTFILES_REPO/tarball/$DOTFILES_VERSION"
 export DOTFILES=~/.dotfiles
 
