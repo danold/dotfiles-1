@@ -12,53 +12,45 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 
 " Plugins requiring configuration get their own file in plugins.d
+Plug 'dstein64/vim-startuptime'
 
 " Editing:
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
-Plug 'godlygeek/tabular'
+runtime plugins.d/godlygeek/tabular.vim
 Plug 'pedrohdz/vim-yaml-folds'
 " runtime plugins.d/mattn/emmet-vim.vim
-runtime plugins.d/raimondi/delimitmate.vim
-Plug 'AndrewRadev/splitjoin.vim'
-
-Plug 'tommcdo/vim-exchange'
+Plug 'windwp/nvim-autopairs'
 runtime plugins.d/machakann/vim-highlightedyank.vim
-Plug 'junegunn/vim-easy-align'
 
 " Config:
 runtime plugins.d/editorconfig/editorconfig-vim.vim
 
-" Snippets:
-" runtime plugins.d/sirver/ultisnips.vim
-Plug 'honza/vim-snippets'
-
 " Ui:
 runtime plugins.d/tpope/vim-vinegar.vim
-" runtime plugins.d/mhinz/vim-signify.vim
-runtime plugins.d/ap/vim-css-color.vim
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua', {  'on': ['NvimTreeToggle', 'NvimTreeFindFile'] }
+Plug 'npxbr/glow.nvim'
 
 " Statusline:
-runtime plugins.d/itchyny/lightline.vim
-Plug 'itchyny/vim-gitbranch'
+Plug 'hoob3rt/lualine.nvim'
 
 " Navigation:
 runtime plugins.d/tpope/vim-unimpaired.vim
-if has('nvim-0.5')
-  runtime plugins.d/phaazon/hop.vim
-else
-  runtime plugins.d/easymotion/vim-easymotion.vim
-endif
+runtime plugins.d/phaazon/hop.vim
 runtime plugins.d/unblevable/quick-scope.vim
 
 " Git:
 runtime plugins.d/tpope/vim-fugitive.vim
 Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'rhysd/git-messenger.vim'
-runtime plugins.d/stsewd/fzf-checkout.vim
+Plug 'wincent/vcs-jump'
 
 " Text_objects:
 Plug 'wellle/targets.vim'
@@ -66,56 +58,74 @@ Plug 'wellle/targets.vim'
 " Filetypes_and_syntax:
 runtime plugins.d/sheerun/vim-polyglot.vim
 Plug 'neoclide/jsonc.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Fuzzy_finder:
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 runtime plugins.d/junegunn/fzf.vim
 
-" " Tmux_integration:
-if system('_os') == 'macos'
-  Plug 'christoomey/vim-tmux-navigator'
-endif
-runtime plugins.d/benmills/vimux.vim
-
 " Colorschemes:
-Plug 'morhetz/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'joshdick/onedark.vim'
+Plug 'RRethy/nvim-base16'
+Plug 'marko-cerovac/material.nvim'
 
-" " Miscellaneous:
-Plug 'tpope/vim-dispatch'
+" Miscellaneous:
 runtime plugins.d/takac/vim-hardtime.vim
 runtime plugins.d/moll/vim-bbye.vim
 
-" " Formatting:
-" Plug 'prettier/vim-prettier', {
-"   \ 'do': 'npm install',
-"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" LSP:
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+Plug 'folke/trouble.nvim'
 
-" " Linting:
-" runtime plugins.d/dense-analysis/ale.vim
-
-" " Completion:
-" runtime plugins.d/ycm-core/YouCompleteMe.vim
-runtime plugins.d/neoclide/coc.vim
-
-" " Wiki:
-runtime plugins.d/vimwiki/vimwiki.vim
-runtime plugins.d/junegunn/goyo.vim
+" Formatting:
+Plug 'mhartington/formatter.nvim'
 
 call plug#end()
 
-if has('nvim-0.5')
-  lua require'hop'.setup {}
-endif
+lua <<EOF
+require('toggle_lsp_diagnostics').init({
+    underline = true, virtual_text     = false,
+    signs     = true, update_in_insert = true
+})
+require('hop').setup()
+require('gitsigns').setup()
+require('trouble').setup()
+require('colorizer').setup()
+require('treesitter-conf')
+require('lsp-conf')
+require('compe-conf')
+require('formatter-conf')
+require('telescope-conf')
+require('lualine-conf')
 
-" " Settings: tmux-navigator {{{2
-" let g:tmux_navigator_disable_when_zoomed = 1
+require('nvim-autopairs').setup()
+require('nvim-autopairs.completion.compe').setup({
+  map_cr = true,
+  map_complete = false
+})
+EOF
 
-" " Settings: vim-prettier {{{2
-" let g:prettier#autoformat = 0
-" nnoremap <leader>ff :PrettierAsync<CR>
-" " Format certain files on save
-" " augroup PrettierAutoformat
-" "   autocmd!
-" "   autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml,*.html PrettierAsync
-" " augroup END
+" TODO: put this somewhere else
+nmap <leader>tdv <Plug>(toggle-lsp-diag-vtext)
+nmap <leader>tdi <Plug>(toggle-lsp-diag-update_in_insert)
+nmap <leader>tdd <Plug>(toggle-lsp-diag)
+
+nnoremap <leader>e <cmd>NvimTreeToggle<CR>
+nnoremap <leader>fl <cmd>NvimTreeFindFile<CR>
+
+nnoremap <silent> <leader>fF :Format<CR>
+
+nnoremap <leader>tt <cmd>TroubleToggle<cr>
+
+" nnoremap <leader><leader> <cmd>Telescope find_files<cr>
+" nnoremap <leader>// <cmd>Telescope live_grep<cr>
+" nnoremap <leader>/b <cmd>Telescope current_buffer_fuzzy_find<cr>
+" nnoremap <leader>bb <cmd>Telescope buffers<cr>
+" nnoremap <leader>;k <cmd>Telescope keymaps<cr>
+" nnoremap <leader>;m <cmd>Telescope marks<cr>
+" nnoremap <leader>;c <cmd>Telescope commands<cr>
+
+nnoremap <leader>p <cmd>Glow<cr>

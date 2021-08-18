@@ -71,8 +71,12 @@ hyper + shift + {1-9}
   tmux_switch_session {1-9}
 
 # random background
-hyper + shift + w
+hyper + ctrl + shift + w
   ~/.config/feh/set-background.sh
+
+# background picker
+hyper + shift + w
+  ~/.config/feh/choose_background.sh
 
 # konsole (backup terminal)
 super + shift + Return
@@ -223,6 +227,10 @@ super + shift + {1-9,0}
 # send to desktop on secondary monitor
 super + {a,d}; shift + {1-9,0}
 	bspc node --to-desktop '{A,B}{1-9,10}' --follow
+
+# send to 'home' desktop
+super + shift + ctrl + h
+  send_home
 
 #
 # preselect

@@ -16,6 +16,18 @@ neovim_config:
     - python
     - python-pylint
     - python-black
+  aur_packages:
+    - lua-format
+    - glow-bin
+  npm_packages:
+    - bash-language-server
+    - diagnostic-languageserver
+    - typescript
+    - typescript-language-server
+    - vscode-langservers-extracted
+    - yaml-language-server
+    - dockerfile-language-server-nodejs
+    - pyright
   pip_packages:
     - pynvim
   links:
@@ -27,6 +39,7 @@ neovim_config:
     - keybindings.vim
     - experimental.vim
     - plugins.d
+    - lua
     - UltiSnips
     - coc-settings.json
     - src: coc-extensions.json

@@ -25,6 +25,20 @@ nnoremap <silent> <leader>X :qall!<CR>
 
 " windows
 nnoremap <silent> <leader>w <C-W>
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+  if exists('t:zoomed') && t:zoomed
+    execute t:zoom_winrestcmd
+    let t:zoomed = 0
+  else
+    let t:zoom_winrestcmd = winrestcmd()
+    resize
+    vertical resize
+    let t:zoomed = 1
+  endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <leader>wf :ZoomToggle<CR>
 
 " folding
 nnoremap <silent> <leader>z zf
@@ -33,7 +47,10 @@ nnoremap <silent> <leader>fo zo
 nnoremap <silent> <leader>fc zc
 nnoremap <silent> <leader>fO zR
 nnoremap <silent> <leader>fC zM
-nnoremap <silent> <leader>fb $zf%
+
+nnoremap <silent> <Plug>FoldBraceBlock $zf%
+      \:call repeat#set("\<Plug>FoldBraceBlock", v:count)<cr>
+nmap <silent> <leader>fb <Plug>FoldBraceBlock
 
 " move vertically by visual line
 nnoremap <silent> j gj
@@ -78,4 +95,6 @@ nnoremap <silent> <leader>tb :call ToggleScrollbind()<CR>
 nnoremap <silent> <leader>fz 1z=
 nnoremap <silent> <Plug>FixNextSpelling ]s1z=
       \:call repeat#set("\<Plug>FixNextSpelling", v:count)<cr>
-nmap <silent> <leader> <Plug>FixNextSpelling
+nmap <silent> <leader>fZ <Plug>FixNextSpelling
+
+xnoremap <silent> <leader>ft :s/^  /	/<cr>

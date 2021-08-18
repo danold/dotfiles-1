@@ -1,12 +1,9 @@
-if has("termguicolors")
-  set termguicolors
-endif
-
 function! NoTildes() abort
   highlight! EndOfBuffer ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE
 endfunction
 
 function! TransparentBg() abort
+  highlight! SignColumn ctermbg=NONE guibg=NONE
   highlight! Normal ctermbg=NONE guibg=NONE
   highlight! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 endfunction
@@ -69,13 +66,48 @@ augroup OnedarkColors
   autocmd ColorScheme onedark call onedark#set_highlight("Normal", { "fg": s:white })
 augroup END
 
-if empty($VIM_COLOR)
-  " let s:theme_to_use="gruvbox"
-  " let s:theme_to_use="onedark"
-  let s:theme_to_use="palenight"
-else
-  let s:theme_to_use=$VIM_COLOR
-endif
+function! Diagnostics() abort
+  highlight! LspDiagnosticsDefaultInformation guifg=LightBlue
+  highlight! LspDiagnosticsDefaultWarning     guifg=Orange
+  highlight! LspDiagnosticsDefaultError       guifg=Red
+endfunction
+
+function! NormalFloats() abort
+  " Floats have no distinguishing bg, making them almost unreadable
+  highlight! link NormalFloat Pmenu
+  " Parentheses in floating windows have weird bgs
+  " CAUTION: This only works if the vim theme matches the terminal theme
+  highlight! Normal guibg=NONE
+endfunction
+
+augroup TSPalenightColors
+  autocmd!
+  autocmd ColorScheme    base16-material-palenight call NormalFloats()
+  autocmd ColorScheme    base16-material-palenight call BlueCursorLine()
+  autocmd ColorScheme    base16-material-palenight call Diagnostics()
+augroup END
+
+function! Tabline() abort
+  highlight! TabLine    guibg=NONE
+  highlight! TabLineSel guibg=#ffcb6b
+endfunction
+
+augroup MaterialColors
+  autocmd!
+  autocmd ColorScheme material call Tabline()
+  autocmd ColorScheme material call TransparentBg()
+augroup END
+
+" if empty($VIM_COLOR)
+"   " let s:theme_to_use="gruvbox"
+"   " let s:theme_to_use="onedark"
+"   " let s:theme_to_use="palenight"
+"   " let s:theme_to_use = "base16-material-palenight"
+" else
+"   let s:theme_to_use=$VIM_COLOR
+" endif
+
+let s:theme_to_use = "material"
+let g:material_style = 'palenight'
 
 execute 'colorscheme' s:theme_to_use
-
