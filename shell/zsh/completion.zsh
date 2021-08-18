@@ -4,7 +4,7 @@ fpath=( ~/.zsh/completion $fpath )
 if type brew &>/dev/null; then
   # Uncomment this if brew's location should change for some reason
   # FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-  fpath=( /usr/local/share/zsh/site-functions $fpath )
+  fpath=( $HOMEBREW_PREFIX/share/zsh/site-functions $fpath )
 fi
 
 # travis gem completion

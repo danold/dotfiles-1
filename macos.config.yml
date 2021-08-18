@@ -42,10 +42,10 @@ topics:
       state: absent
       config: "{{ fasterkeys_config }}"
     - name: hammerspoon
-      state: absent
+      state: present
       config: "{{ hammerspoon_config }}"
     - name: karabiner
-      state: present
+      state: absent
       config: "{{ karabiner_config }}"
   shell:
     - name: alacritty
