@@ -57,6 +57,9 @@ topics:
     - name: git
       state: present
       config: "{{ git_config }}"
+    - name: gnupg
+      state: present
+      config: "{{ gnupg_config }}"
     - name: ssh
       state: present
       config: "{{ ssh_config }}"
