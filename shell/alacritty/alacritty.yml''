@@ -82,7 +82,7 @@ schemes:
       cyan: '#BAFAE3'
       white: '#FFFFFF'
 
-colors: *palenight
+colors: *gruvbox
 
 cursor:
   style:
@@ -97,5 +97,3 @@ key_bindings:
   - { key: C,  mods: Alt,           chars: "\x1bc"                       }
   - { key: D,  mods: Alt,           chars: "\x1bd"                       }
   - { key: Paste,                                       action: Paste    }
-
-alt_send_esc: false

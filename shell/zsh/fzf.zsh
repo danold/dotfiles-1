@@ -259,9 +259,8 @@ fi
 p() {
   local query=$1
   local DIR_LIST=(
-    "${HOME}/dev"
-    "${HOME}/learn"
     "${HOME}/work"
+    "${HOME}/sources"
   )
 
   for dir in ${DIR_LIST[@]}; do

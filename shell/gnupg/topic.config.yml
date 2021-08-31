@@ -1,0 +1,17 @@
+---
+ssh_config:
+  path: shell/gnupg
+  links:
+    - src: gnupg.conf
+      dest: "~/.gnupg/"
+    - src: gpg-agent.conf
+      dest: "~/.gnupg/"
+      condition: "{{ is_macos }}"
+  brew_formulas:
+    - gnupg
+    - pinentry-mac
+    - yubikey-personalization
+    - hopenpgp-tools
+    - ykman
+  pacman_packages:
+    - gnupg

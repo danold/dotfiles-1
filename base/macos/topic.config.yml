@@ -10,12 +10,12 @@ macos_config:
     - bartender
     #- discord
     #- dropbox
-    - google-chrome
+    #- google-chrome
     - istat-menus
-    - 1password
+    #- 1password
     - 1password-cli
     - slack
-    - spotify
+    #- spotify
     - textexpander
     - amethyst
     - balenaetcher

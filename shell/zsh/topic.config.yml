@@ -22,6 +22,11 @@ zsh_config:
     # misc
     - neofetch
     - terminal-notifier
+    - gnupg
+    - pinentry-mac
+    - yubikey-personalization
+    - hopenpgp-tools
+    - ykman
   pacman_packages:
     - zsh
     - xclip

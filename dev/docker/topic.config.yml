@@ -6,7 +6,7 @@ docker_config:
     - podman
     - skopeo
   brew_casks:
-    - docker
+    #- docker
   pacman_packages:
     - docker
     - docker-compose

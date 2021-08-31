@@ -1,0 +1,6 @@
+---
+- name: create gnupg-dir
+  file:
+    state: directory
+    path: "~/.gnupg"
+
